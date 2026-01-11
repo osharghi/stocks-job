@@ -1,3 +1,11 @@
+"""
+This script fetches the tiingo fundamentals data. This tells us
+which tickers are active and available. This script fetches the 
+meta-data, filters for active csvs, and stores the ticker info 
+in a csv. This csv is used by the other scripts to fetch the
+individual ticker data.
+"""
+
 import requests
 import json
 import asyncio
@@ -8,7 +16,6 @@ import os
 from dotenv import load_dotenv
 
 
-# fundamental meta
 META_ENDPOINT = "https://api.tiingo.com/tiingo/fundamentals/meta"
 
 async def fetch_meta_data():
