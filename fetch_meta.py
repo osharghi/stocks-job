@@ -35,7 +35,7 @@ def get_fundamentals_meta_data():
     json_result = asyncio.run(fetch_meta_data())
     df = pd.DataFrame(json_result)
     filtered_df = df[df['isActive'] == True].copy()
-    file_name = 'fundamental_meta.csv'
+    file_name = './meta_data/fundamental_meta.csv'
     filtered_df.to_csv(file_name, index=False)
     return filtered_df
 

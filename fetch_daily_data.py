@@ -71,6 +71,8 @@ def merge_daily_and_fundamental_data(response):
             df['ticker'] = ticker
             # shave off hour, mins, seconds from date column
             df["date"] = df["date"].str[:-14] 
+            # if ticker is already in df_dict, that means we already have the fundamental or daily dataset.
+            # So now we need to merged them.
             if ticker in df_dict:
                 original_df = df_dict[ticker]
                 df_merged = pd.merge(original_df, df, on=['date', 'ticker'])
@@ -86,7 +88,7 @@ def merge_daily_and_fundamental_data(response):
 
 def fetch_and_merged_data_sets():
     # Load meta data csv for active tickers
-    df_fundamentals = pd.read_csv('fundamental_meta.csv', sep=',')
+    df_fundamentals = pd.read_csv('./meta_data/fundamental_meta.csv', sep=',')
     tickers = df_fundamentals['ticker'].tolist()
     # Fetch daily + fundamental data
     response = asyncio.run(run_concurrent(tickers))
