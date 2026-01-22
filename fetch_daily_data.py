@@ -80,6 +80,8 @@ def merge_daily_and_fundamental_data(response):
             else:
                 df_dict[ticker] = df
         except Exception as e:
+            if ticker_dict[0] is None:
+                continue
             ticker = ticker_dict[0]
             print('unable to process {} due to error: {}'.format(ticker, e))
             MISSING_TICKERS_SET.add(ticker)
