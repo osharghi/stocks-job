@@ -10,11 +10,11 @@ from dotenv import load_dotenv
 
 # gets granual daily (high, low, close, volume)
 DAILY_DATA_KEY = 'DAILY_DATA'
-DAILY_DATA_ENDPOINT = 'https://api.tiingo.com/tiingo/daily/{}/prices?startDate=2024-1-01&resampleFreq=daily&token={}'
+DAILY_DATA_ENDPOINT = 'https://api.tiingo.com/tiingo/daily/{}/prices?startDate=2025-6-01&resampleFreq=daily&token={}'
 
 # gets P/E and marketCap data
 FUNDAMENTALS_KEY = 'FUNDAMENTALS'
-FUNDAMENTALS_ENDPOINT = 'https://api.tiingo.com/tiingo/fundamentals/{}/daily?startDate=2024-1-01&token={}'
+FUNDAMENTALS_ENDPOINT = 'https://api.tiingo.com/tiingo/fundamentals/{}/daily?startDate=2025-6-01&token={}'
 
 ENDPOINT_DICT = {
     DAILY_DATA_KEY: DAILY_DATA_ENDPOINT,
